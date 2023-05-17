@@ -7,6 +7,13 @@ sources:
     tables:
       - name: customer
       - name: orders
+        columns:
+          - name: orderid
+            tests:
+              - unique:
+                  tags: ['my_tag']
+              - not_null:
+                  tags: ['my_tag']
       - name: product   
         
            

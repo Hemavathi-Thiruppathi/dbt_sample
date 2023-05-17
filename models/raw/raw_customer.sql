@@ -1,8 +1,4 @@
-{{
-    config(
-        materialized='table'
-    )
-}}
+tags: ['my_tag']
 
 select * from 
 {{ source('globalmart', 'customer') }}
