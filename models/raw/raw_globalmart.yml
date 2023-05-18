@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: raw_customer
+    columns:
+      - name: customerid
+        tests:
+          - unique:
+              tags: ['my_tag']
+          - not_null:
+              tags: ['my_tag']
+  - name: raw_orders
+    columns:
+      - name: orderid
+        tests:
+          - unique:
+              tags: ['my_tag']
+          - not_null:
+              tags: ['my_tag']
+      - name: shipmode
+        tests:
+          - accepted_values:
+              values:
+                - "First Class"
+                - "Same Day"
+                - "Second Class"
+                - "Standard Class"         
+              
+              
+          
+
+            
