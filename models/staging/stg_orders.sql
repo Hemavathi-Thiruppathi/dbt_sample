@@ -4,7 +4,7 @@ select
 orderid,
 orderdate,
 shipdate,
-shipmode,
+o.shipmode,
 o.customerid,
 o.productid,
 ordersellingprice,
