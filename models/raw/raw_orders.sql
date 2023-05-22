@@ -1,13 +1,16 @@
 {{
     config(
         materialized='incremental',
-        unique_key='orderid'
+        unique_key='orderid'       
     )
 }}
 
-select * from 
-{{ source('globalmart', 'orders') }}
+with orders as (
+    select * from 
+    {{ source('globalmart', 'orders') }}
+)
 
+select * from orders
 {% if is_incremental() %}
 
   -- this filter will only be applied on an incremental run

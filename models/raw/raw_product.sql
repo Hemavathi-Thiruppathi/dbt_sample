@@ -1,8 +1,12 @@
 {{
     config(
-        materialized='table'
+        tags = ["weekly"]
     )
 }}
 
-select * from 
-{{ source('globalmart', 'product') }}
+with product as (
+    select * from 
+    {{ source('globalmart', 'product') }}
+)
+
+select * from product

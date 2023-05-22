@@ -24,6 +24,16 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+vars:
+      current_year: 2023
+
+# on-run-start:
+#     - "create table if not exists audit (model text, state text, time timestamp_ltz)"
+
+# on-run-end:
+#   - 'grant usage on schema analytics.dbt to role analyst'
+#   - 'grant select on all tables in schema analytics.dbt to role analyst'
+#   - 'grant select on all views in schema analytics.dbt to role analyst' 
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -32,11 +42,17 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  globalmart:
+  globalmart:    
     # Applies to all files under models/example/
+    +pre-hook:
+      - "insert into audit (model, state, time) values ('{{this.name}}', 'starting model deployment', current_timestamp)"
+    # +post-hook:   
+    #   - "insert into audit (model, state, time) values ('{{this.name}}', 'completing model deployment', current_timestamp)"
     raw:
       materialized: table
     staging:
       materialized: view
     reporting:
       materialized: table
+    +tags:
+      -manual

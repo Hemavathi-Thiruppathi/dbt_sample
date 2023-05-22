@@ -27,5 +27,4 @@ left join {{ ref('raw_product') }} as p
 on o.productid = p.productid
 left join {{ ref('delivery_team') }} as d
 on o.shipmode = d.shipmode
---where o.orderdate >= dateadd('day', -30, current_timestamp)
---{{limit_data_in_dev('orderdate')}}
+{{limit_data_in_dev('o.update_dt')}}

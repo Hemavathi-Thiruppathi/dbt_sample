@@ -1,5 +1,5 @@
 {% macro limit_data_in_dev(column_name) %}
---{% if target.name == "dev" %}
+--{% if target.name == "default" %}
 where {{column_name}} >= dateadd('day', -30, current_timestamp)
 --{% endif %}
 {% endmacro %}
