@@ -13,10 +13,8 @@ sources:
           - name: orderid
             description: the primary key of the orders
             tests:
-              - unique:
-                  tags: ['my_tag']
-              - not_null:
-                  tags: ['my_tag']
+              - unique
+              - not_null
       - name: product   
         
            
