@@ -27,8 +27,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 vars:
       current_year: 2023
 
-# on-run-start:
-#     - "create table if not exists audit (model text, state text, time timestamp_ltz)"
+on-run-start:
+    - "create table if not exists audit (model text, state text, time timestamp_ltz)"
 
 # on-run-end:
 #   - 'grant usage on schema analytics.dbt to role analyst'
