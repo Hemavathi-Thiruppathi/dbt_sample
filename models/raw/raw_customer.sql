@@ -6,7 +6,7 @@
 
 with customer as (
     select * from 
-    {{ source('globalmart', 'customer')}}
+    {{ source('globalmart_src', 'customer')}}
 )
 
 select * from customer

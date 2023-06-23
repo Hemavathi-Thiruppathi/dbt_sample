@@ -1,13 +1,12 @@
 globalmart:
-
   target: dev
   outputs:
     dev:
       dbt_version: 1.4.6
       type: snowflake
-      account: xd66785.central-india.azure
-      user: themavathi
-      password: Happy@001
+      account: qg35001.central-india.azure
+      user: { { env_var('DBT_USER') } }
+      password: { { env_var('DBT_ENV_SECRET_PWD') } }
       database: analytics
       warehouse: compute_wh
       schema: dbt_dev
@@ -16,13 +15,11 @@ globalmart:
     prod:
       dbt_version: 1.4.6
       type: snowflake
-      account: xd66785.central-india.azure
-      user: themavathi
-      password: Happy@001
+      account: qg35001.central-india.azure
+      user: { { env_var('DBT_USER') } }
+      password: { { env_var('DBT_ENV_SECRET_PWD') } }
       database: analytics
       warehouse: compute_wh
       schema: dbt_prod
       threads: 4
       client_session_keep_alive: false
-  
-

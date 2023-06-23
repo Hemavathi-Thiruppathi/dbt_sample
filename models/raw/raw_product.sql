@@ -6,7 +6,7 @@
 
 with product as (
     select * from 
-    {{ source('globalmart', 'product') }}
+    {{ source('globalmart_src', 'product') }}
 )
 
 select * from product
