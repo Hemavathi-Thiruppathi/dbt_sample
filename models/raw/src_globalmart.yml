@@ -1,10 +1,10 @@
 version: 2
 
 sources:
-  - name: globalmart
+  - name: globalmart_src
     description: a clone of the snowflake database
-    database: raw    
-    schema: globalmart
+    database: source
+    schema: landing
     tables:
       - name: customer
       - name: orders
@@ -15,9 +15,4 @@ sources:
             tests:
               - unique
               - not_null
-      - name: product   
-        
-           
-          
-
-        
+      - name: product
