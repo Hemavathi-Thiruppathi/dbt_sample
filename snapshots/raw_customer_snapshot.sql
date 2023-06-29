@@ -1,7 +1,7 @@
 {% snapshot raw_customer_snapshot %}
     {{
         config(
-          target_database='analytics',
+          target_database='Analytics',
           target_schema='snapshots',
           unique_key='customerid',
 
